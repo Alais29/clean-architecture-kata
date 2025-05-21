@@ -10,3 +10,13 @@ export function getUsersPresenter(view: View) {
 
   return new Presenter(view, addNewUser, getUserList);
 }
+
+// React
+const userRepository = new InMemoryUserRepository();
+export function provideGetUserListUseCase() {
+  return new GetUserList(userRepository);
+}
+
+export function provideAddNewUserUseCase() {
+  return new AddNewUser(userRepository);
+}
